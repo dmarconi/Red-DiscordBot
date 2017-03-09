@@ -6,7 +6,7 @@ import random
 from random import shuffle, choice
 
 class SbbFun:
-    """SBB-fun-shaped commands!"""
+    """SBB-Fun-shaped commands!"""
 
     def __init__(self, bot):
         self.bot = bot
@@ -39,7 +39,7 @@ class SbbFun:
 
 
     @commands.command(pass_context=True)
-    async def ribaltone(self, ctx, user : discord.Member=None):
+    async def ribalta(self, ctx, user : discord.Member=None):
         """Ribalta un utente"""
         if user != None:
             msg = ""
