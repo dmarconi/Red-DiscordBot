@@ -23,12 +23,21 @@ class SbbFun:
         """Insulta utente"""
 
         #Your code will go here
-        ifile = 'data/sbb/insults.txt'
-        encoding = self.guess_encoding(ifile)
-        lines = open(ifile, "r", encoding=encoding).read().splitlines()
-        line =random.choice(lines)
+        if user != None:
+            msg = ""
+            if user.id == self.bot.user.id:
+                msg = "Credi che il sommo Lider mi abbia fatto scemo? BHUAHAHAHAHAHA!!! "
+                user = ctx.message.author
 
-        await self.bot.say(user.mention + line)
+            #Loads a random insult from database
+            ifile = 'data/sbb/insults.txt'
+            encoding = self.guess_encoding(ifile)
+            lines = open(ifile, "r", encoding=encoding).read().splitlines()
+            line =random.choice(lines)
+            await self.bot.say(msg + user.mention + line)
+        else:
+            await self.bot.say("Devi scegliere qualcuno cujò!")
+
 
     @commands.command()
     async def punch(self, user : discord.Member):
